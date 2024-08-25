@@ -1,0 +1,104 @@
+/* General styles */
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* background: url('back2.png') no-repeat center center fixed;
+    background-size: cover; */
+    overflow-x: hidden;
+}
+
+
+
+/* Sidebar */
+/* .sidebar {
+    width: 250px;
+    background-color: #3D5456;
+    padding: 20px;
+    border-radius: 16px;
+    margin-right: 20px;
+} */
+
+/* .sidebar-title {
+    color: #E9E6E4;
+    font-size: 24px;
+    margin-bottom: 20px;
+} */
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* .nav-link {
+    display: block;
+    text-decoration: none;
+    color: #E9E6E4;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background: #75A2A0;
+    transition: background 0.3s ease;
+} */
+/* 
+.nav-link:hover {
+    background: #7F5E43;
+    color: #ffffff;
+}
+
+.logout-button {
+    background: #7F5E43;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+} */
+
+/* Main Content Area */
+/* .main-content {
+    flex-grow: 1;
+    padding: 20px;
+    background: #E9E6E4;
+    border-radius: 16px;
+} */
+
+/* Section Title */
+/* .section-title {
+    font-size: 28px;
+    color: #3D5456;
+    margin-bottom: 20px;
+    text-align: center;
+} */
+
+/* Staff Details */
+.staff-details {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.staff-name {
+    font-size: 24px;
+    color: #3D5456;
+    margin-bottom: 10px;
+}
+
+.staff-info {
+    font-size: 16px;
+    color: #3D5456;
+    margin-bottom: 8px;
+}
+
+.error-message {
+    color: red;
+    text-align: center;
+}
+
+.loading-message {
+    color: #3D5456;
+    text-align: center;
+}

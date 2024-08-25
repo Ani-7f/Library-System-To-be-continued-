@@ -1,0 +1,117 @@
+/* General Layout */
+.book-list-page {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: #26292D;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* Form Container */
+.form-container {
+    width: 30%;
+    background-color: #E9E6E4;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #3D5456;
+}
+
+form input[type="text"],
+form input[type="number"],
+form input[type="email"],
+form input[type="password"],
+form input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #D6CBAD;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: #75A2A0;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1em;
+    width: 100%;
+}
+
+form button:hover {
+    background-color: #3D5456;
+}
+
+/* Books Container */
+.books-container {
+    width: 65%;
+    height: calc(100vh - 40px); /* Adjust based on padding */
+    overflow-y: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+}
+
+/* Book Card */
+.book-card {
+    background-color: #F4F4F4;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    text-align: center;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.book-cover {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.book-details {
+    text-align: center;
+}
+
+.book-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.details-button, .delete-button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #75A2A0;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.details-button:hover, .delete-button:hover {
+    background-color: #3D5456;
+}
+
+.delete-button {
+    background-color: #7F5E43;
+}
+
+.delete-button:hover {
+    background-color: #26292D;
+}

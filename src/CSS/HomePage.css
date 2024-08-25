@@ -1,0 +1,246 @@
+/* General styles */
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+}
+
+/* Background Gradient */
+:root {
+    --color-bg1: #c4d4db; /* Light Blue */
+    --color-bg2: #e9e6e4; /* Light Gray */
+    --color1: 189, 169, 190; /* Converted #bda9be to RGB */
+    --color2: 217, 147, 149; /* Converted #d99395 to RGB */
+    --color3: 177, 146, 148; /* Converted #b19294 to RGB */
+    --color4: 200, 50, 50; /* Keep unchanged, or update if desired */
+    --color5: 180, 180, 50; /* Keep unchanged, or update if desired */
+    --color-interactive: 140, 100, 255; /* Keep unchanged */
+    --circle-size: 80%;
+    --blending: hard-light;
+}
+  
+  @keyframes moveInCircle {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(180deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes moveVertical {
+    0% {
+      transform: translateY(-50%);
+    }
+    50% {
+      transform: translateY(50%);
+    }
+    100% {
+      transform: translateY(-50%);
+    }
+  }
+  
+  @keyframes moveHorizontal {
+    0% {
+      transform: translateX(-50%) translateY(-10%);
+    }
+    50% {
+      transform: translateX(50%) translateY(10%);
+    }
+    100% {
+      transform: translateX(-50%) translateY(-10%);
+    }
+  }
+  
+  .gradient-bg {
+    position: fixed; /* Ensure background covers the whole viewport */
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(40deg, var(--color-bg1), var(--color-bg2));
+    top: 0;
+    left: 0;
+    z-index: -1; /* Ensure it stays behind all other content */
+  }
+  
+  .gradients-container {
+    filter: url(#goo) blur(40px);
+    width: 100%;
+    height: 100%;
+    position: relative; /* Position it relative to the .gradient-bg */
+  }
+  
+  .g1, .g2, .g3, .g4, .g5 {
+    position: absolute;
+    mix-blend-mode: var(--blending);
+    width: var(--circle-size);
+    height: var(--circle-size);
+    transform-origin: center;
+    opacity: 1;
+  }
+  
+  .g1 {
+    background: radial-gradient(circle at center, rgba(var(--color1), 0.8) 0%, rgba(var(--color1), 0) 50%);
+    top: calc(50% - var(--circle-size) / 2);
+    left: calc(50% - var(--circle-size) / 2);
+    animation: moveVertical 30s ease infinite;
+  }
+  
+  .g2 {
+    background: radial-gradient(circle at center, rgba(var(--color2), 0.8) 0%, rgba(var(--color2), 0) 50%);
+    top: calc(50% - var(--circle-size) / 2);
+    left: calc(50% - var(--circle-size) / 2);
+    transform-origin: calc(50% - 400px);
+    animation: moveInCircle 20s reverse infinite;
+  }
+  
+  .g3 {
+    background: radial-gradient(circle at center, rgba(var(--color3), 0.8) 0%, rgba(var(--color3), 0) 50%);
+    top: calc(50% - var(--circle-size) / 2 + 200px);
+    left: calc(50% - var(--circle-size) / 2 - 500px);
+    transform-origin: calc(50% + 400px);
+    animation: moveInCircle 40s linear infinite;
+  }
+  
+  .g4 {
+    background: radial-gradient(circle at center, rgba(var(--color4), 0.8) 0%, rgba(var(--color4), 0) 50%);
+    top: calc(50% - var(--circle-size) / 2);
+    left: calc(50% - var(--circle-size) / 2);
+    transform-origin: calc(50% - 200px);
+    animation: moveHorizontal 40s ease infinite;
+    opacity: 0.7;
+  }
+  
+  .g5 {
+    background: radial-gradient(circle at center, rgba(var(--color5), 0.8) 0%, rgba(var(--color5), 0) 50%);
+    width: calc(var(--circle-size) * 2);
+    height: calc(var(--circle-size) * 2);
+    top: calc(50% - var(--circle-size));
+    left: calc(50% - var(--circle-size));
+    transform-origin: calc(50% - 800px) calc(50% + 200px);
+    animation: moveInCircle 20s ease infinite;
+  }
+  
+  .interactive {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: radial-gradient(circle at center, rgba(var(--color-interactive), 0.9) 0%, rgba(var(--color-interactive), 0.2) 70%);
+    opacity: 0.8; /* Increase opacity for more prominence */
+  }
+  
+
+
+/* Container */
+.container {
+    display: flex;
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #e6aec133;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    position: relative; /* Ensures it sits above the background */
+    z-index: 1; /* Ensures content is above the gradient background */
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #d9939548;
+    padding: 20px;
+    border-radius: 16px;
+    margin-right: 20px;
+}
+
+.sidebar-title {
+    color: #26292d;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-link {
+    display: block;
+    text-decoration: none;
+    color: #26292d;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background: #bda9be;
+    transition: background 0.3s ease;
+}
+
+.nav-link:hover {
+    background: #c4d4db;
+    color: #ffffff;
+}
+
+.logout-button {
+    background: #d99395;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+}
+
+/* Main Content Area */
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    background: #c4d4db83;
+    border-radius: 16px;
+}
+
+/* Section Books */
+.section-books {
+    margin-top: 20px;
+}
+
+.section-title {
+    font-size: 28px;
+    color: #26292d;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Books Table */
+.books-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.books-table th, .books-table td {
+    padding: 12px 15px;
+    text-align: left;
+    color: #26292d;
+}
+
+.books-table th {
+    background-color: #d99395;
+    color: #ffffff;
+}
+
+.books-table tr:nth-child(even) {
+    background-color: #E9E6E4;
+}
+
+.books-table tr:hover {
+    background-color: #c4d4db;
+}

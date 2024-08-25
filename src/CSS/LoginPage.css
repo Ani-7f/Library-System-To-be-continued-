@@ -1,0 +1,171 @@
+/* General styles */
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif; /* Or any preferred font */
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background: url('back2.png') no-repeat center center fixed; /* Background image */
+    /* background-size: cover; Ensures the image covers the entire background */
+}
+
+/* Login Container */
+.login-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(233, 230, 228, 0.9); /* 90% transparent container background */
+    padding: 20px;
+    border-radius: 16px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Welcome Section */
+.login-welcome {
+    flex: 1;
+    padding-right: 20px;
+    color: #f5f8f8;
+}
+
+.login-welcome h2 {
+    font-size: 28px;
+    margin-bottom: 16px;
+    color: #26292D;
+}
+
+.login-welcome p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #3D5456;
+}
+
+/* Login Form Section */
+.login-form {
+    flex: 1;
+    background: rgba(117, 162, 160, 0.9); /* 90% transparent form background */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-form h2 {
+    font-size: 24px;
+    margin-bottom: 16px;
+    color: #E9E6E4;
+}
+
+/* Form Groups */
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    color: #3D5456;
+    margin-bottom: 6px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #3D5456;
+    border-radius: 8px;
+    background: #E9E6E4;
+    color: #26292D;
+}
+
+.error-message {
+    color: #D6CBAD;
+    margin-bottom: 16px;
+}
+
+/* Button Styles - Using the Library's Colors */
+.button {
+    height: 50px;
+    width: 100%;
+    position: relative;
+    background-color: transparent;
+    cursor: pointer;
+    border: 2px solid #3D5456; /* Primary dark color */
+    overflow: hidden;
+    border-radius: 30px;
+    color: #3D5456; /* Text color */
+    transition: all 0.5s ease-in-out;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.btn-txt {
+    z-index: 1;
+    font-weight: 800;
+    letter-spacing: 4px;
+    color: #3D5456;
+}
+
+.type1::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: all 0.5s ease-in-out;
+    background-color: #3D5456; /* Background fill on hover */
+    border-radius: 30px;
+    visibility: hidden;
+    height: 10px;
+    width: 10px;
+    z-index: -1;
+}
+
+.button:hover {
+    box-shadow: 1px 1px 200px #3D5456; /* Hover shadow */
+    color: #E9E6E4; /* Text color on hover */
+    border: none;
+}
+
+.type1:hover::after {
+    visibility: visible;
+    transform: scale(100) translateX(2px);
+}
+
+.btn-primary {
+    background: #3D5456; /* Dark background */
+    color: #E9E6E4; /* Light text color */
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: #7F5E43; /* Slightly lighter on hover */
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #3D5456;
+    padding: 10px 18px;
+    border: 2px solid #3D5456;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    transition: background 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background: #3D5456;
+    color: #E9E6E4;
+}

@@ -1,0 +1,23 @@
+/* General Layout for Book Details */
+.book-details-page {
+    width: 80%;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    padding-top: 20px;
+    color: #26292D;
+    min-height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Book Card */
+.book-card {
+    background-color: #F4F4F4;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 20px;
+    text-align: center;
+}

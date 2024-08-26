@@ -1,106 +1,139 @@
-/* General styles */
-html, body {
-    height: 100%;
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f4f4;
-    overflow-x: hidden;
+/* User Detail Page Container */
+.user-detail-page {
+    display: flex;
+    align-items: center;
+    padding: 3%;
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    flex-direction: row;
 }
 
-/* Sidebar */
-/* .sidebar {
-    width: 250px;
-    background-color: #3D5456;
+/* Sections Container */
+.sections-container {
+    display: flex;
+    justify-content: space-between; /* Adjust based on your layout */
+    gap: 20px;
+     /* Space between sections */
+}
+
+/* User Details */
+.user-details {
+    flex: 1;
+    background-color: #bda9be7e; /* Light pink background with transparency */
     padding: 20px;
     border-radius: 16px;
-    margin-right: 20px;
-} */
-
-/* .sidebar-title {
-    color: #E9E6E4;
-    font-size: 24px;
-    margin-bottom: 20px;
-} */
-
-.sidebar-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 9%;
+    margin-top: 9%;
+    
 }
-
-/* .nav-link {
-    display: block;
-    text-decoration: none;
-    color: #E9E6E4;
-    padding: 10px 15px;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    background: #75A2A0;
-    transition: background 0.3s ease;
-} */
-/* 
-.nav-link:hover {
-    background: #7F5E43;
-    color: #ffffff;
-}
-
-.logout-button {
-    background: #7F5E43;
-    color: #ffffff;
-    border: none;
-    cursor: pointer;
-    padding: 10px 15px;
-    border-radius: 8px;
-    transition: background 0.3s ease;
-} */
-
-/* Main Content Area */
-/* .main-content {
-    flex-grow: 1;
-    padding: 20px;
-    background: #E9E6E4;
-    border-radius: 16px;
-} */
 
 /* Section Title */
-/* .section-title {
+.user-detail-page h2 {
     font-size: 24px;
-    color: #3D5456;
-    margin-bottom: 20px;
-    text-align: center;
-} */
+    margin-bottom: 15px;
+    color: #26292d; /* Dark text color */
+}
+
+/* Book List Container */
+.book-list-container {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    padding-top: 8%;
+   
+    border-radius: 16px;
+   
+   /* Space between lists */
+}
 
 /* Book List */
 .book-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+    list-style-type: none;
+    padding-top: 0%;
+    
 }
 
 .book-list-item {
-    padding: 15px 20px;
-    background-color: #ffffff;
-    border-radius: 8px;
+    background-color: #b19294; /* Light pink background */
+    border-radius: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    margin-bottom: 2%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    color: #26292d; /* Dark text color */
 }
 
-.action-button {
-    background-color: #75A2A0;
+.book-list-item button {
+    background-color: #d99395; /* Light pink button background */
     color: #ffffff;
     border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
+    border-radius: 8px;
+    padding: 5px 10px;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: background-color 0.3s ease;
 }
 
-.action-button:hover {
-    background-color: #7F5E43;
+.book-list-item button:hover {
+    background-color: #3d5456; /* Darker pink on hover */
 }
 
-.fine-status {
-    color: #28A745;
+.book-list-item button:disabled {
+    background-color: #d3d3d3; /* Gray background for disabled state */
+    cursor: not-allowed;
 }
+
+/* Pagination Controls */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Space between controls */
+    margin-top: 20px;
+}
+
+.pagination button {
+    background-color: #d99395; /* Light pink button background */
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.pagination button:hover {
+    background-color: #3d5456; /* Darker pink on hover */
+}
+
+.pagination button:disabled {
+    background-color: #d3d3d3; /* Gray background for disabled state */
+    cursor: not-allowed;
+}
+
+.pagination span {
+    align-self: center;
+    color: #26292d; /* Dark text color */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

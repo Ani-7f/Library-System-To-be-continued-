@@ -26,6 +26,17 @@ const StaffPage = ({ onLogout }) => {
     }, []);
 
     return (
+<div className="page-wrapper">
+        <div className="gradient-bg">
+        <div className="gradients-container">
+            <div className="g1"></div>
+            <div className="g2"></div>
+            <div className="g3"></div>
+            <div className="g4"></div>
+            <div className="g5"></div>
+            <div className="interactive"></div>
+        </div>
+    </div>
         <div className="container">
             <aside className="sidebar">
                 <h2 className="sidebar-title">Navigation</h2>
@@ -54,6 +65,7 @@ const StaffPage = ({ onLogout }) => {
                     <p className="loading-message">Loading staff details...</p>
                 )}
             </main>
+        </div>
         </div>
     );
 };

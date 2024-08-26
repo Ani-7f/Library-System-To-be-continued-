@@ -65,6 +65,28 @@ module.exports = (upload) => {
         }
     });
 
+    // Fetch books with pagination
+router.get('/paginated', async (req, res) => {
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+    const skip = (page - 1) * limit;
+
+    try {
+        const totalBooks = await Book.countDocuments();
+        const books = await Book.find().skip(skip).limit(limit);
+
+        res.json({
+            totalBooks,
+            totalPages: Math.ceil(totalBooks / limit),
+            currentPage: page,
+            books
+        });
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
+
     // Get a specific book by ID
     router.get('/:id', async (req, res) => {
         try {

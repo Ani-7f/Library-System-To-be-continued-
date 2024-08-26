@@ -16,11 +16,23 @@ const verifyToken = (token) => {
     });
 };
 
-// Get all users (by name only)
+// Get all users with pagination
 router.get('/', async (req, res) => {
+    const { page = 1, limit = 4 } = req.query; // Default to page 1 and limit of 4
+    const skip = (page - 1) * limit;
+    
     try {
-        const users = await User.find().select('name');
-        res.json(users);
+        const users = await User.find()
+            .select('name') // Only select the name field
+            .skip(parseInt(skip))
+            .limit(parseInt(limit));
+        const totalUsers = await User.countDocuments(); // Total number of users
+        
+        res.json({
+            users,
+            totalPages: Math.ceil(totalUsers / limit),
+            currentPage: parseInt(page),
+        });
     } catch (err) {
         console.error('Error fetching users:', err.message);
         res.status(500).json({ message: 'Error fetching users' });

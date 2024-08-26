@@ -1,11 +1,31 @@
 /* General styles */
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
 html, body {
     height: 100%;
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     overflow: hidden;
 }
+p{
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    
+}
 
+h2{
+font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+h1{
+    font-family: "Playfair Display", serif;
+      font-optical-sizing: auto;
+      font-style: normal;
+    }
 /* Background Gradient */
 :root {
     --color-bg1: #c4d4db; /* Light Blue */
@@ -180,6 +200,9 @@ html, body {
     margin-bottom: 10px;
     background: #bda9be;
     transition: background 0.3s ease;
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .nav-link:hover {

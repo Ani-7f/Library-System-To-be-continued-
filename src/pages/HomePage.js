@@ -35,7 +35,7 @@ const HomePage = ({ onLogout }) => {
             </div>
             <div className="container">
                 <aside className="sidebar">
-                    <h2 className="sidebar-title">Navigation</h2>
+                    <h1 className="sidebar-title">Navigation</h1>
                     <nav className="sidebar-nav">
                         <ul>
                             <li><Link to="/Home" className="nav-link">Home</Link></li>
@@ -48,7 +48,7 @@ const HomePage = ({ onLogout }) => {
                 </aside>
                 <main className="main-content">
                     <section className="section-books">
-                        <h2 className="section-title">Top 5 Books</h2>
+                        <h1 className="section-title">Top 5 Books</h1>
                         <table className="books-table">
                             <thead>
                                 <tr>

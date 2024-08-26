@@ -45,6 +45,18 @@ const LoginPage = ({ setLoggedIn }) => {
     };
 
     return (
+
+        <div className="page-wrapper">
+            <div className="gradient-bg">
+                <div className="gradients-container">
+                    <div className="g1"></div>
+                    <div className="g2"></div>
+                    <div className="g3"></div>
+                    <div className="g4"></div>
+                    <div className="g5"></div>
+                    <div className="interactive"></div>
+                </div>
+            </div>
         <div className="login-container">
             <div className="login-welcome">
                 <h2>Welcome to the Staff Portal</h2>
@@ -108,6 +120,7 @@ const LoginPage = ({ setLoggedIn }) => {
                     {isRegistering ? 'Already have an account? Login' : 'New user? Register here'}
                 </button>
             </div>
+        </div>
         </div>
     );
 };

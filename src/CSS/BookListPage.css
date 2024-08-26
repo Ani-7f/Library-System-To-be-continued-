@@ -1,86 +1,113 @@
-/* General Layout */
-.book-list-page {
+/* Main Content Area */
+.book-main-content {
+    flex-grow: 2;
+    background: #c4d4db83;
+    border-radius: 16px;
     display: flex;
     justify-content: space-between;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-    color: #26292D;
-    min-height: 100vh;
-    box-sizing: border-box;
+    height: 400px;
+    width: auto;
+    
 }
 
 /* Form Container */
+/* Form Container */
 .form-container {
-    width: 30%;
-    background-color: #E9E6E4;
-    padding: 20px;
-    border-radius: 10px;
+    width: 20%;
+    background-color: #bda9bece; /* Light pink background with transparency */
+    padding: 2%;
+    border-radius: 16px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-form h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #3D5456;
-}
-
-form input[type="text"],
-form input[type="number"],
-form input[type="email"],
-form input[type="password"],
-form input[type="file"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #D6CBAD;
-    border-radius: 5px;
-    box-sizing: border-box;
-}
-
-form button {
-    padding: 10px 20px;
-    background-color: #75A2A0;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-size: 1em;
-    width: 100%;
-}
-
-form button:hover {
-    background-color: #3D5456;
-}
-
-/* Books Container */
-.books-container {
-    width: 65%;
-    height: calc(100vh - 40px); /* Adjust based on padding */
-    overflow-y: auto;
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: flex-start;
+    flex-direction: column;
+    gap: 0.5%; /* Space between form elements */
 }
+
+/* Form Header */
+.form-container h2 {
+    text-align: center;
+}
+
+/* Form Fields */
+
+
+.form-container input[type="text"],
+.form-container input[type="number"],
+.form-container input[type="email"],
+.form-container input[type="password"],
+.form-container input[type="file"],
+.form-container select {
+    width: 100%;
+    padding: 2.5%; /* Increased padding for better usability */
+    margin-bottom: 15px; /* Space between fields */
+    border: 1px solid #d6cbad; /* Light border */
+    border-radius: 8px; /* Rounded corners */
+    background-color: #ffffff; /* White background for inputs */
+    box-sizing: border-box; /* Ensure padding is included in width */
+    font-size: 14px; /* Font size for input text */
+    color: #26292d; /* Text color */
+}
+
+.form-container input[type="file"] {
+    padding: 5px; /* Less padding for file inputs */
+    border: none; /* Remove border */
+    background-color: transparent; /* Transparent background */
+}
+
+.form-container button {
+    padding: 2% 2%; /* Padding for buttons */
+    background-color: #d99395; /* Teal background */
+    color: #ffffff; /* White text color */
+    border: none;
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer;
+    font-size: 16px; /* Font size for button text */
+    transition: background-color 0.3s ease;
+    width: 100%; /* Full width button */
+}
+
+.form-container button:hover {
+    background-color: #3d5456; /* Darker teal on hover */
+}
+
+.form-container button:disabled {
+    background-color: #d3d3d3; /* Gray background for disabled state */
+    cursor: not-allowed; /* Pointer cursor */
+}
+
+
+/* Book List Container */
+.books-container {
+    width: 80%;
+    height: auto; /* Adjust based on padding */
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust minmax value as needed */
+    gap: 5%; /* Space between book cards */
+    justify-content: start; /* Align items to the start */
+    padding: 2%; /* Add padding to avoid content sticking to edges */
+}
+
 
 /* Book Card */
 .book-card {
-    background-color: #F4F4F4;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 200px;
-    text-align: center;
-    padding: 15px;
+    background-color: #b19294; /* Light pink background */
+    border-radius: 16px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    max-width: 85%;
+    max-height: auto; /* Set a fixed width for the card */
+    text-align: center; /* Center text inside the card */
+    padding: 10px; /* Adjust padding for a smaller card */
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: #e9e6e4; /* Light gray background for consistency with other sections */
 }
 
 .book-cover {
     width: 100%;
     height: auto;
-    border-radius: 10px;
+    border-radius: 16px;
     margin-bottom: 10px;
 }
 
@@ -97,21 +124,21 @@ form button:hover {
 .details-button, .delete-button {
     padding: 5px 10px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
-    background-color: #75A2A0;
+    background-color: #d99395;
     color: white;
     transition: background-color 0.3s ease;
 }
 
 .details-button:hover, .delete-button:hover {
-    background-color: #3D5456;
+    background-color: #3d5456;
 }
 
 .delete-button {
-    background-color: #7F5E43;
+    background-color: #bda9be;
 }
 
 .delete-button:hover {
-    background-color: #26292D;
+    background-color: #26292d;
 }

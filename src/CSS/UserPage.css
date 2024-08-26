@@ -3,104 +3,39 @@ html, body {
     height: 100%;
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* background: url('back2.png') no-repeat center center fixed;
-    background-size: cover; */
     overflow-x: hidden;
 }
 
-/* Container */
-
-
-/* Sidebar */
-/* .sidebar {
-    width: 250px;
-    background-color: #3D5456;
-    padding: 20px;
-    border-radius: 16px;
-    margin-right: 20px;
-} */
-
-/* .sidebar-title {
-    color: #E9E6E4;
-    font-size: 24px;
-    margin-bottom: 20px;
-} */
-
-.sidebar-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-/* .nav-link {
-    display: block;
-    text-decoration: none;
-    color: #E9E6E4;
-    padding: 10px 15px;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    background: #75A2A0;
-    transition: background 0.3s ease;
-} */
-/* 
-.nav-link:hover {
-    background: #7F5E43;
-    color: #ffffff;
-}
-
-.logout-button {
-    background: #7F5E43;
-    color: #ffffff;
-    border: none;
-    cursor: pointer;
-    padding: 10px 15px;
-    border-radius: 8px;
-    transition: background 0.3s ease;
-} */
-
-/* Main Content Area */
-/* .main-content {
-    flex-grow: 1;
-    padding: 20px;
-    background: #E9E6E4;
-    border-radius: 16px;
-} */
-
-/* Section Title */
-/* .section-title {
-    font-size: 28px;
-    color: #3D5456;
-    margin-bottom: 20px;
-    text-align: center;
-} */
 
 /* User List */
 .user-list {
     list-style: none;
     padding: 0;
     margin: 0;
+    width:400px;
 }
 
 .user-list-item {
-    padding: 10px 15px;
-    background-color: #ffffff;
+    padding: 5% 10%;
+    background-color: #ffffff9b;
     border-radius: 8px;
     margin-bottom: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-right: 2%;
 }
 
 .view-details-link {
     text-decoration: none;
-    color: #75A2A0;
+    color: #d99395;
     font-weight: bold;
     transition: color 0.3s ease;
 }
 
 .view-details-link:hover {
-    color: #7F5E43;
+    color: #c4d4db
 }
 
 /* Error and Loading Messages */
@@ -112,4 +47,59 @@ html, body {
 .loading-message {
     color: #3D5456;
     text-align: center;
+}
+
+/* UserPage.css */
+
+/* Pagination Container */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Pagination Buttons */
+.pagination button {
+    background-color: #bda9be; /* Light background color */
+    border: 1px solid #bda9be; /* Border color */
+    border-radius: 5px; /* Rounded corners */
+    color: #e9e6e4; /* Text color */
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px 15px;
+    margin: 0 5px;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+}
+
+.pagination button:hover {
+    background-color: #c4d4db; /* Light grey background on hover */
+}
+
+.pagination button:disabled {
+    background-color: #5d333d; /* Disabled button color */
+    color: #6c757d; /* Disabled text color */
+    cursor: not-allowed; /* Change cursor to indicate disabled state */
+    border-color: #dee2e6; /* Border color for disabled button */
+}
+
+/* Page Number Display */
+.pagination span {
+    font-size: 16px;
+    margin: 0 10px;
+    color: #495057; /* Dark text color */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .pagination button {
+        padding: 8px 12px;
+        font-size: 14px;
+        margin: 0 3px;
+    }
+    
+    .pagination span {
+        font-size: 14px;
+        margin: 0 5px;
+    }
 }

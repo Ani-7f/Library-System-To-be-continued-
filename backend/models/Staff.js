@@ -26,9 +26,11 @@ StaffSchema.pre('save', async function(next) {
     }
 });
 
-StaffSchema.methods.comparePassword = function(candidatePassword) {
-    return bcrypt.compare(candidatePassword, this.password);
+StaffSchema.methods.comparePassword = async function(candidatePassword) {
+    return await bcrypt.compare(candidatePassword, this.password);
 };
+
+
 
 
 

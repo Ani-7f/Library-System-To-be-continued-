@@ -21,7 +21,7 @@
 .staff-info-section {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+  
 }
 
 .staff-info-item label {
@@ -33,7 +33,7 @@
 .staff-info-item .info-block {
     font-size: 14px;
     background: #A198D3; /* Softer background similar to input fields */
-    padding: 10px;
+    padding: 6px;
     border-radius: 8px;
     border: 1px solid #EBCEBE ;
     text-align: left;
@@ -48,4 +48,31 @@
 .loading-message {
     color: #3D5456;
     text-align: center;
+}
+
+.save-button , .edit-button, .cancel-button{
+    padding: 2% 2%; /* Padding for buttons */
+    background-color: #d99395; /* Teal background */
+    color: #ffffff; /* White text color */
+    border: none;
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer;
+    font-size: 16px; /* Font size for button text */
+    transition: background-color 0.3s ease;
+    width: 100%; /* Full width button */
+    margin-top: 10px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group select {
+    width: 100%;
+    padding: 1.5%; /* Increased padding for better usability */
+    border: 1px solid #DAA7A0; /* Light border */
+    border-radius: 8px; /* Rounded corners */
+    background-color: #EBCEBE; /* White background for inputs */
+    box-sizing: border-box;
+    color: #291a52; /* Text color */
 }

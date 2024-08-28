@@ -7,7 +7,7 @@ const router = express.Router();
 router.get('/me', authMiddleware, async (req, res) => {
     try {
         // Find staff member by ID from the request
-        const staff = await Staff.findById(req.staffId);
+        const staff = await Staff.findById(req.staffId).select('-password'); // Exclude password from response
 
         if (!staff) {
             return res.status(404).json({ message: 'Staff not found' });
@@ -21,13 +21,26 @@ router.get('/me', authMiddleware, async (req, res) => {
     }
 });
 
-// Get all staff members (optional, for admin use)
-router.get('/', async (req, res) => {
+// Update staff details, excluding password changes
+router.put('/me', authMiddleware, async (req, res) => {
+    const { name, username, email } = req.body;
+
     try {
-        const staff = await Staff.find(); // Fetch all staff members
+        const staff = await Staff.findById(req.staffId);
+        if (!staff) {
+            return res.status(404).json({ message: 'Staff member not found' });
+        }
+
+        // Update fields if provided
+        if (name) staff.name = name;
+        if (username) staff.username = username;
+        if (email) staff.email = email;
+
+        await staff.save();
         res.json(staff);
-    } catch (error) {
-        console.error('Error fetching staff:', error);
+
+    } catch (err) {
+        console.error('Error updating staff details:', err);
         res.status(500).json({ message: 'Server error' });
     }
 });

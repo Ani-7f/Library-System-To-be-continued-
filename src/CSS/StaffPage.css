@@ -1,31 +1,43 @@
-/* General styles */
-html, body {
-    height: 100%;
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* background: url('back2.png') no-repeat center center fixed;
-    background-size: cover; */
-    overflow-x: hidden;
-}
-
-/* Staff Details */
 .staff-details {
-    background-color: #ffffff;
-    padding: 20px;
+    flex: 1;
+    background: #A198D3; /* Matching the background of the login form */
+    padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 20px auto;
 }
-
 .staff-name {
     font-size: 24px;
-    color: #3D5456;
     margin-bottom: 10px;
+    color:#291a52;
 }
 
 .staff-info {
     font-size: 16px;
-    color: #3D5456;
     margin-bottom: 8px;
+}
+
+.staff-info-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.staff-info-item label {
+    font-size: 14px;
+    color: #291a52;
+}
+
+/* Staff Info Values */
+.staff-info-item .info-block {
+    font-size: 14px;
+    background: #A198D3; /* Softer background similar to input fields */
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #EBCEBE ;
+    text-align: left;
+    color: #26292D;
 }
 
 .error-message {

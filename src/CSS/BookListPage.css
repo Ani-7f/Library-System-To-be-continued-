@@ -1,20 +1,18 @@
 /* Main Content Area */
 .book-main-content {
     flex-grow: 2;
-    background: #c4d4db83;
+    background: transparent; /* Fully transparent background */
     border-radius: 16px;
     display: flex;
     justify-content: space-between;
     height: 400px;
     width: auto;
-    
 }
 
 /* Form Container */
-/* Form Container */
 .form-container {
     width: 20%;
-    background-color: #bda9bece; /* Light pink background with transparency */
+    background-color: #daa7a0ab; /* Light pink background with transparency */
     padding: 2%;
     border-radius: 16px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -26,6 +24,7 @@
 /* Form Header */
 .form-container h2 {
     text-align: center;
+    color: #291a52;
 }
 
 /* Form Fields */
@@ -40,9 +39,9 @@
     width: 100%;
     padding: 2.5%; /* Increased padding for better usability */
     margin-bottom: 15px; /* Space between fields */
-    border: 1px solid #d6cbad; /* Light border */
+    border: 1px solid #DAA7A0; /* Light border */
     border-radius: 8px; /* Rounded corners */
-    background-color: #ffffff; /* White background for inputs */
+    background-color: #EBCEBE; /* White background for inputs */
     box-sizing: border-box; /* Ensure padding is included in width */
     font-size: 14px; /* Font size for input text */
     color: #26292d; /* Text color */
@@ -67,7 +66,7 @@
 }
 
 .form-container button:hover {
-    background-color: #3d5456; /* Darker teal on hover */
+    background-color: #A198D3; /* Darker teal on hover */
 }
 
 .form-container button:disabled {

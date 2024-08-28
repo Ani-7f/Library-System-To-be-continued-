@@ -20,14 +20,14 @@ const verifyToken = (token) => {
 router.get('/', async (req, res) => {
     const { page = 1, limit = 4 } = req.query; // Default to page 1 and limit of 4
     const skip = (page - 1) * limit;
-    
+
     try {
         const users = await User.find()
             .select('name') // Only select the name field
             .skip(parseInt(skip))
             .limit(parseInt(limit));
         const totalUsers = await User.countDocuments(); // Total number of users
-        
+
         res.json({
             users,
             totalPages: Math.ceil(totalUsers / limit),
@@ -144,22 +144,28 @@ router.post('/:id/return', async (req, res) => {
     }
 });
 
-// Pay fine
-router.post('/:userId/pay-fine', async (req, res) => {
+// Mark fine as paid for a specific borrowed book
+router.post('/:userId/mark-fine-paid', async (req, res) => {
     try {
-        const userId = req.params.userId;
+        const { borrowedBookId } = req.body;
         const token = req.headers.authorization?.split(' ')[1];
 
         if (!token) return res.status(401).json({ message: 'No token provided' });
 
         const decoded = await verifyToken(token);
-        const user = await User.findById(userId);
+        const user = await User.findById(req.params.userId);
 
         if (!user) {
             return res.status(404).send({ error: 'User not found' });
         }
 
-        user.finesOwed = 0;
+        const borrowedBook = user.borrowedBooks.id(borrowedBookId);
+
+        if (!borrowedBook) {
+            return res.status(404).send({ error: 'Borrowed book not found' });
+        }
+
+        borrowedBook.fine = 0;
         await user.save();
 
         res.send({ message: 'Fine paid successfully' });

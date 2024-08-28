@@ -41,7 +41,21 @@ const UserPage = ({ onLogout }) => {
     const totalPages = Math.ceil(totalUsers / usersPerPage);
 
     return (
-        <div className="container">
+        <div className="page-wrapper">
+        
+
+            <div className="gradient-bg">
+                <div className="gradients-container">
+                    <div className="g1"></div>
+                    <div className="g2"></div>
+                    <div className="g3"></div>
+                    <div className="g4"></div>
+                    <div className="g5"></div>
+                    <div className="interactive"></div>
+                </div>
+            </div>
+
+            <div className="container">
             <aside className="sidebar">
                 <h2 className="sidebar-title">Navigation</h2>
                 <nav className="sidebar-nav">
@@ -54,17 +68,7 @@ const UserPage = ({ onLogout }) => {
                     </ul>
                 </nav>
             </aside>
-
-            <div className="gradient-bg">
-                <div className="gradients-container">
-                    <div className="g1"></div>
-                    <div className="g2"></div>
-                    <div className="g3"></div>
-                    <div className="g4"></div>
-                    <div className="g5"></div>
-                    <div className="interactive"></div>
-                </div>
-            </div>
+           
             <main className="main-content">
                 <h1 className="section-title">Users</h1>
                 {error && <p className="error-message">{error}</p>}
@@ -98,6 +102,7 @@ const UserPage = ({ onLogout }) => {
                     currentPage === 1 ? <p>No users found.</p> : null
                 )}
             </main>
+        </div>
         </div>
     );
 };

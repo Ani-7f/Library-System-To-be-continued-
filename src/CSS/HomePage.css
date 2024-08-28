@@ -28,17 +28,19 @@ h1{
     }
 /* Background Gradient */
 :root {
-    --color-bg1: #c4d4db; /* Light Blue */
-    --color-bg2: #e9e6e4; /* Light Gray */
-    --color1: 189, 169, 190; /* Converted #bda9be to RGB */
-    --color2: 217, 147, 149; /* Converted #d99395 to RGB */
-    --color3: 177, 146, 148; /* Converted #b19294 to RGB */
-    --color4: 200, 50, 50; /* Keep unchanged, or update if desired */
-    --color5: 180, 180, 50; /* Keep unchanged, or update if desired */
-    --color-interactive: 140, 100, 255; /* Keep unchanged */
-    --circle-size: 80%;
-    --blending: hard-light;
+  --color-bg1: #a8c6d4; /* More intense Light Blue */
+  --color-bg2: #dcdad8; /* Slightly darker Light Gray */
+  --color1: 168, 129, 171; /* More intense RGB for #bda9be */
+  --color2: 187, 77, 79; /* More intense RGB for #d99395 */
+  --color3: 147, 96, 98; /* More intense RGB for #b19294 */
+  --color4: 180, 20, 20; /* More intense Red */
+  --color5: 150, 150, 30; /* More intense Yellow */
+  --color-interactive: 120, 80, 255; /* More intense purple */
+  --circle-size: 80%;
+  --blending: hard-light;
 }
+
+
   
   @keyframes moveInCircle {
     0% {
@@ -163,7 +165,7 @@ h1{
     max-width: 1200px;
     margin: 50px auto;
     padding: 20px;
-    background: #e6aec133;
+    background: #e6aec13f;
     border-radius: 16px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     position: relative; /* Ensures it sits above the background */
@@ -172,15 +174,16 @@ h1{
 
 /* Sidebar */
 .sidebar {
-    width: 250px;
-    background-color: #d9939548;
-    padding: 20px;
-    border-radius: 16px;
-    margin-right: 20px;
+  width: 250px;
+  background-color: rgba(161, 152, 211, 0); /* Increased transparency */
+  padding: 20px;
+  border-radius: 16px;
+  margin-right: 20px;
+  position: relative;
+  z-index: 2; /* Ensure it's layered correctly */
 }
-
 .sidebar-title {
-    color: #26292d;
+    color: #291a52;
     font-size: 24px;
     margin-bottom: 20px;
 }
@@ -192,17 +195,18 @@ h1{
 }
 
 .nav-link {
-    display: block;
-    text-decoration: none;
-    color: #26292d;
-    padding: 10px 15px;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    background: #bda9be;
-    transition: background 0.3s ease;
-    font-family: "Lato", sans-serif;
-    font-weight: 400;
-    font-style: normal;
+  display: block;
+  text-decoration: none;
+  color: #291a52;
+  padding: 10px 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  border: 2px solid #ebcebe; /* White border */
+  background: transparent; /* Transparent background to let the gradient shine through */
+  transition: background 0.3s ease, color 0.3s ease;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .nav-link:hover {
@@ -235,7 +239,7 @@ h1{
 
 .section-title {
     font-size: 28px;
-    color: #26292d;
+    color: #291a52;
     margin-bottom: 20px;
     text-align: center;
 }
@@ -252,7 +256,7 @@ h1{
 .books-table th, .books-table td {
     padding: 12px 15px;
     text-align: left;
-    color: #26292d;
+    color: #291a52;
 }
 
 .books-table th {
@@ -267,3 +271,7 @@ h1{
 .books-table tr:hover {
     background-color: #c4d4db;
 }
+
+
+/*  Transition */
+/* CSS for Page Transition */

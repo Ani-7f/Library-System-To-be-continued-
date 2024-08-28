@@ -7,11 +7,19 @@ const userAuthMiddleware = async (req, res, next) => {
     if (!token) return res.status(401).json({ message: 'No token provided' });
 
     try {
+        // Decode the token (does not verify the signature)
         const decoded = jwt.decode(token, JWT_SECRET);
-        req.userId = decoded.id; 
+        
+        // Verify the token
+        const user = await User.findById(decoded.id);
+        if (!user) {
+            return res.status(401).json({ message: 'Invalid token' });
+        }
+
+        req.userId = decoded.id; // Attach user ID to the request object
         next();
     } catch (error) {
-        console.error('Invalid token:', error);
+        console.error('Error verifying token:', error);
         res.status(401).json({ message: 'Invalid token' });
     }
 };

@@ -89,7 +89,7 @@ const UserPage = ({ onLogout }) => {
                             >
                                 Previous
                             </button>
-                            <span>Page {currentPage} of {3}</span>
+                            <span>Page {currentPage} of {2}</span>
                             <button
                                 onClick={() => handlePageChange(currentPage + 1)}
                                 disabled={currentPage === totalPages || users.length < usersPerPage}

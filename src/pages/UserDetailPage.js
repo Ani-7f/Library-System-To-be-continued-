@@ -11,6 +11,9 @@ const UserDetailPage = ({ onLogout }) => {
     const [totalPages, setTotalPages] = useState(1);
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(true);
+    const [showModal, setShowModal] = useState(false); // For showing the modal
+    const [selectedBook, setSelectedBook] = useState(null); // For storing selected book
+    const [action, setAction] = useState(''); // For storing action type ('borrow' or 'remove')
 
     const booksPerPage = 5;
 
@@ -52,47 +55,18 @@ const UserDetailPage = ({ onLogout }) => {
         fetchUserAndBooks();
     }, [userId, currentPage]);
 
-    const handleBorrowBook = async (bookId) => {
-        setLoading(true);
-        setError('');
-        console.log(`Attempting to borrow book with ID: ${bookId} for user ID: ${userId}`);
-        try {
-            const response = await axios.post(
-                `http://localhost:5000/api/users/${userId}/borrow`,
-                { bookId },
-                {
-                    headers: {
-                        Authorization: `Bearer ${localStorage.getItem('token')}`,
-                    },
-                }
-            );
-            console.log('Borrow book response:', response.data);
-    
-            const updatedUserResponse = await axios.get(`http://localhost:5000/api/users/${userId}`, {
-                headers: {
-                    Authorization: `Bearer ${localStorage.getItem('token')}`,
-                },
-            });
-            setUser(updatedUserResponse.data);
-        } catch (error) {
-            setError('Error borrowing book');
-            if (error.response) {
-                console.error('Error response:', error.response.data);
-                console.error('Status code:', error.response.status);
-            } else {
-                console.error('Error message:', error.message);
-            }
-        } finally {
-            setLoading(false);
-        }
+    const handleBorrowBook = (book) => {
+        setSelectedBook(book);
+        setAction('borrow');
+        setShowModal(true);
     };
 
-    const handleMarkFinePaid = async (borrowedBookId) => {
+    const handleRemoveBook = async (borrowedBookId) => {
         setLoading(true);
         setError('');
         try {
             await axios.post(
-                `http://localhost:5000/api/users/${userId}/mark-fine-paid`,
+                `http://localhost:5000/api/users/${userId}/remove-book`,
                 { borrowedBookId },
                 {
                     headers: {
@@ -107,7 +81,45 @@ const UserDetailPage = ({ onLogout }) => {
             });
             setUser(updatedUserResponse.data);
         } catch (error) {
-            setError('Error marking fine as paid');
+            setError('Error removing book');
+            if (error.response) {
+                console.error('Error response:', error.response.data);
+                console.error('Status code:', error.response.status);
+            } else {
+                console.error('Error message:', error.message);
+            }
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const confirmAction = async () => {
+        if (!selectedBook) return;
+        setLoading(true);
+        setError('');
+        try {
+            if (action === 'borrow') {
+                await axios.post(
+                    `http://localhost:5000/api/users/${userId}/borrow`,
+                    { bookId: selectedBook._id },
+                    {
+                        headers: {
+                            Authorization: `Bearer ${localStorage.getItem('token')}`,
+                        },
+                    }
+                );
+            } else if (action === 'remove') {
+                await handleRemoveBook(selectedBook._id);
+            }
+            const updatedUserResponse = await axios.get(`http://localhost:5000/api/users/${userId}`, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('token')}`,
+                },
+            });
+            setUser(updatedUserResponse.data);
+            setShowModal(false);
+        } catch (error) {
+            setError(action === 'borrow' ? 'Error borrowing book' : 'Error removing book');
             if (error.response) {
                 console.error('Error response:', error.response.data);
                 console.error('Status code:', error.response.status);
@@ -173,14 +185,11 @@ const UserDetailPage = ({ onLogout }) => {
                                     <li key={entry._id}>
                                         {entry.book ? entry.book.title : 'Unknown Book'} 
                                         (Due: {entry.dueDate ? new Date(entry.dueDate).toLocaleDateString() : 'N/A'})
-                                        {entry.finePaid ? (
-                                            <span> (Fine Paid)</span>
-                                        ) : (
-                                            <span>
-                                                (Fine: R{entry.fine})
-                                                <button onClick={() => handleMarkFinePaid(entry._id)}>Mark Fine as Paid</button>
-                                            </span>
-                                        )}
+                                        <button onClick={() => {
+                                            setSelectedBook(entry.book);
+                                            setAction('remove');
+                                            setShowModal(true);
+                                        }}>Remove Book</button>
                                     </li>
                                 ))}
                             </ul>
@@ -196,7 +205,7 @@ const UserDetailPage = ({ onLogout }) => {
                                 books.map((book) => (
                                     <li className="book-list-item" key={book._id}>
                                         {book.title} - {book.author}
-                                        <button onClick={() => handleBorrowBook(book._id)}>Borrow</button>
+                                        <button onClick={() => handleBorrowBook(book)}>Borrow</button>
                                     </li>
                                 ))
                             )}
@@ -219,6 +228,23 @@ const UserDetailPage = ({ onLogout }) => {
                     </div>
                 </div>
             </div>
+
+            {/* Modal for Confirming Action */}
+            {showModal && (
+                <div className="modal-overlay">
+                    <div className="modal">
+                        <h2>{action === 'borrow' ? 'Confirm Borrowing' : 'Confirm Removal'}</h2>
+                        <p>
+                            {action === 'borrow' 
+                                ? `Are you sure you want to borrow the book "${selectedBook.title}" by ${selectedBook.author}?`
+                                : `Are you sure you want to remove the book "${selectedBook.title}" from your borrowed list?`
+                            }
+                        </p>
+                        <button onClick={confirmAction}>Confirm</button>
+                        <button onClick={() => setShowModal(false)}>Cancel</button>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

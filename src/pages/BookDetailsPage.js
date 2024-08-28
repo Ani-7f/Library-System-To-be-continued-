@@ -68,7 +68,6 @@ const BookDetailsPage = ({ onLogout }) => {
             <p><strong>Author:</strong> {book.author}</p>
             <p><strong>Published Date:</strong> {book.publicationYear}</p>
             <p><strong>Copies Available:</strong> {book.copiesAvailable}</p>
-            <p><strong>Borrowed By:</strong> {book.borrowedBy}</p>
             <p><strong>ISBN:</strong> {book.isbn}</p>
           </div>
         </div>
